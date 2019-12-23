@@ -8,7 +8,7 @@ import ShopPage from './pages/shop/shop.component'
 function App() {
   return (
     <div>
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <BrowserRouter>
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/shop" component={ShopPage} />
