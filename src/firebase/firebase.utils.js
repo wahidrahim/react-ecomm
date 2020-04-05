@@ -10,7 +10,7 @@ const config = {
   storageBucket: 'ecomm-demo-93a3c.appspot.com',
   messagingSenderId: '630814969286',
   appId: '1:630814969286:web:ef0e3a81e5ca59a45676c7',
-  measurementId: 'G-JXT495FLXV'
+  measurementId: 'G-JXT495FLXV',
 }
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
@@ -29,7 +29,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
         displayName,
         email,
         createdAt,
-        ...additionalData
+        ...additionalData,
       })
     } catch (error) {
       console.error('error creating user', error.message)
@@ -37,6 +37,30 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   }
 
   return userRef
+}
+
+export const convertCollectionsSnapshotToMap = (collections) => {
+  const transformedCollection = collections.docs.map((doc) => {
+    const { title, items } = doc.data()
+
+    return {
+      id: doc.id,
+      routeName: encodeURI(title.toLowerCase()),
+      items,
+      title,
+    }
+  })
+
+  const collectionsMap = transformedCollection.reduce(
+    (accumulator, collection) => {
+      accumulator[collection.title.toLowerCase()] = collection
+
+      return accumulator
+    },
+    {}
+  )
+
+  return collectionsMap
 }
 
 firebase.initializeApp(config)
