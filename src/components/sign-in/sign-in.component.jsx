@@ -8,7 +8,7 @@ import { signInWithGoogle, auth } from '../../firebase/firebase.utils'
 
 const defaultState = {
   email: '',
-  password: ''
+  password: '',
 }
 
 class SignIn extends React.Component {
@@ -18,7 +18,7 @@ class SignIn extends React.Component {
     this.state = defaultState
   }
 
-  handleSubmit = async e => {
+  handleSubmit = async (e) => {
     e.preventDefault()
 
     const { email, password } = this.state
@@ -62,7 +62,7 @@ class SignIn extends React.Component {
           />
           <div className="buttons">
             <CustomButton type="submit">Sign In</CustomButton>
-            <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
+            <CustomButton onClick={signInWithGoogle} googleSignIn>
               Sign In With Google
             </CustomButton>
           </div>
