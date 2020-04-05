@@ -1,4 +1,6 @@
 import React from 'react'
+import { withRouter } from 'react-router'
+import { Link } from 'react-router-dom'
 
 import CollectionItem from '../collection-item/collection-item.component'
 
@@ -8,9 +10,11 @@ import {
   Preview,
 } from './collection-preview.styles'
 
-const CollectionPreview = ({ title, items }) => (
+const CollectionPreview = ({ title, items, routeName, match }) => (
   <CollectionPreviewContainer>
-    <Title>{title.toUpperCase()}</Title>
+    <Link to={`${match.url}/${routeName}`}>
+      <Title>{title.toUpperCase()}</Title>
+    </Link>
     <Preview>
       {items
         .filter((item, i) => i < 4)
@@ -21,4 +25,4 @@ const CollectionPreview = ({ title, items }) => (
   </CollectionPreviewContainer>
 )
 
-export default CollectionPreview
+export default withRouter(CollectionPreview)
