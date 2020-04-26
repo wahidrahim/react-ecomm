@@ -9,7 +9,7 @@ import {
 } from '../../redux/shop/shop.selector';
 import WithSpinner from '@components/with-spinner/with-spinner.component';
 import CollectionsOverview from '@components/collections-overview/collections-overview.component';
-import CollectionPage from '../collection/collection.component';
+import CollectionPage from '@pages/collection/collection.component';
 
 import { fetchCollectionsAsync } from '../../redux/shop/shop.actions';
 
