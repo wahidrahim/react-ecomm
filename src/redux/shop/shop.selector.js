@@ -22,3 +22,8 @@ export const isCollectionFetching = createSelector(
   [selectShop],
   (shop) => shop.isFetching
 )
+
+export const isCollectionFinishedFetching = createSelector(
+  [selectCollections],
+  (collections) => (collections ? !!Object.keys(collections).length : false)
+)
