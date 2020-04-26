@@ -1,17 +1,17 @@
-import React from "react";
-import { Route } from "react-router-dom";
-import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
+import React from 'react';
+import { Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
 
 import {
   isCollectionFetching,
   isCollectionFinishedFetching,
-} from "../../redux/shop/shop.selector";
-import WithSpinner from "../../components/with-spinner/with-spinner.component";
-import CollectionsOverview from "../../components/collections-overview/collections-overview.component";
-import CollectionPage from "../collection/collection.component";
+} from '../../redux/shop/shop.selector';
+import WithSpinner from '@components/with-spinner/with-spinner.component';
+import CollectionsOverview from '@components/collections-overview/collections-overview.component';
+import CollectionPage from '../collection/collection.component';
 
-import { fetchCollectionsAsync } from "../../redux/shop/shop.actions";
+import { fetchCollectionsAsync } from '../../redux/shop/shop.actions';
 
 const CollectionsOverviewWithSpinner = WithSpinner(CollectionsOverview);
 const CollectionPageWithSpinner = WithSpinner(CollectionPage);

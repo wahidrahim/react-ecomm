@@ -1,14 +1,14 @@
-import React from 'react'
+import React from 'react';
 
-import './checkout.syles.scss'
-import { createStructuredSelector } from 'reselect'
+import './checkout.syles.scss';
+import { createStructuredSelector } from 'reselect';
 import {
   getCartItems,
-  getCartTotalPrice
-} from '../../redux/cart/cart.selectors'
-import { connect } from 'react-redux'
-import CheckoutItem from '../../components/checkout-item/checkout-item.component'
-import StripeCheckoutButton from '../../components/stripe-button/stripe-button.component'
+  getCartTotalPrice,
+} from '../../redux/cart/cart.selectors';
+import { connect } from 'react-redux';
+import CheckoutItem from '@components/checkout-item/checkout-item.component';
+import StripeCheckoutButton from '@components/stripe-button/stripe-button.component';
 
 const CheckoutPage = ({ cartItems, total }) => (
   <div className="checkout-page">
@@ -29,7 +29,7 @@ const CheckoutPage = ({ cartItems, total }) => (
         <span>Remove</span>
       </div>
     </div>
-    {cartItems.map(item => (
+    {cartItems.map((item) => (
       <CheckoutItem key={item.id} item={item} />
     ))}
     <div className="total">
@@ -37,11 +37,11 @@ const CheckoutPage = ({ cartItems, total }) => (
     </div>
     <StripeCheckoutButton price={total} />
   </div>
-)
+);
 
 const mapStateToProps = createStructuredSelector({
   cartItems: getCartItems,
-  total: getCartTotalPrice
-})
+  total: getCartTotalPrice,
+});
 
-export default connect(mapStateToProps)(CheckoutPage)
+export default connect(mapStateToProps)(CheckoutPage);
