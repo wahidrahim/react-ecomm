@@ -1,19 +1,25 @@
-import React from 'react';
-import {Route} from 'react-router-dom';
-import {connect} from 'react-redux';
+import React from 'react'
+import {Route} from 'react-router-dom'
+import {connect} from 'react-redux'
+import {createStructuredSelector} from 'reselect'
 
-import CollectionsOverviewContainer from '@components/collections-overview/collections-overview.container';
-import CollectionPageContainer from '@pages/collection/collection.container';
+import {isCollectionFetching} from '../../redux/shop/shop.selector'
+import WithSpinner from '../../components/with-spinner/with-spinner.component'
+import CollectionsOverview from '../../components/collections-overview/collections-overview.component'
+import CollectionPage from '../collection/collection.component'
 
-import {fetchCollectionsAsync} from '@redux/shop/shop.actions';
+import {fetchCollectionsStart} from '../../redux/shop/shop.actions'
+
+const CollectionsOverviewWithSpinner = WithSpinner(CollectionsOverview)
+const CollectionPageWithSpinner = WithSpinner(CollectionPage)
 
 class ShopPage extends React.Component {
   componentDidMount() {
-    this.props.fetchCollectionsAsync();
+    this.props.fetchCollectionsStart()
   }
 
   render() {
-    const {match} = this.props;
+    const {match, isCollectionFetching} = this.props
 
     return (
       <div className="shop-page">
@@ -32,7 +38,12 @@ class ShopPage extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
+<<<<<<< HEAD
   fetchCollectionsAsync: () => dispatch(fetchCollectionsAsync()),
 });
+=======
+  fetchCollectionsStart: () => dispatch(fetchCollectionsStart()),
+})
+>>>>>>> a92f4f377d83b47767eeef72ec600c645ab1f29a
 
 export default connect(null, mapDispatchToProps)(ShopPage);
