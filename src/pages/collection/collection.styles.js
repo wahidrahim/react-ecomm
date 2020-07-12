@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Collection = styled.div`
   display: flex;
@@ -18,12 +18,12 @@ export const Collection = styled.div`
       margin-bottom: 30px;
     }
   }
-`
+`;
 
 export const Title = styled.h2`
   font-size: 38px;
   margin: 0 auto 30px;
-`
+`;
 
 export const ItemsContainer = styled.div`
   display: grid;
@@ -33,4 +33,4 @@ export const ItemsContainer = styled.div`
   & .collection-item {
     margin-bottom: 30px;
   }
-`
+`;

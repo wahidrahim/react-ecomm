@@ -1,16 +1,16 @@
-import React from 'react'
-import {withRouter} from 'react-router'
-import {Link} from 'react-router-dom'
+import React from 'react';
+import { withRouter } from 'react-router';
+import { Link } from 'react-router-dom';
 
-import CollectionItem from '../collection-item/collection-item.component'
+import CollectionItem from '../collection-item/collection-item.component';
 
 import {
   CollectionPreviewContainer,
   Title,
   Preview,
-} from './collection-preview.styles'
+} from './collection-preview.styles';
 
-const CollectionPreview = ({title, items, routeName, match}) => (
+const CollectionPreview = ({ title, items, routeName, match }) => (
   <CollectionPreviewContainer>
     <Link to={`${match.url}/${routeName}`}>
       <Title>{title.toUpperCase()}</Title>
@@ -23,6 +23,6 @@ const CollectionPreview = ({title, items, routeName, match}) => (
         ))}
     </Preview>
   </CollectionPreviewContainer>
-)
+);
 
-export default withRouter(CollectionPreview)
+export default withRouter(CollectionPreview);

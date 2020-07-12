@@ -1,42 +1,42 @@
-import React from 'react'
+import React from 'react';
 
-import './sign-in.styles.scss'
-import FormInput from '../form-input/form-input.component'
-import CustomButton from '../custom-button/custom-button.component'
+import './sign-in.styles.scss';
+import FormInput from '../form-input/form-input.component';
+import CustomButton from '../custom-button/custom-button.component';
 
-import {signInWithGoogle, auth} from '../../firebase/firebase.utils'
+import { signInWithGoogle, auth } from '../../firebase/firebase.utils';
 
 const defaultState = {
   email: '',
   password: '',
-}
+};
 
 class SignIn extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
-    this.state = defaultState
+    this.state = defaultState;
   }
 
   handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    const {email, password} = this.state
+    const { email, password } = this.state;
 
     try {
-      await auth.signInWithEmailAndPassword(email, password)
+      await auth.signInWithEmailAndPassword(email, password);
 
-      this.setState(defaultState)
+      this.setState(defaultState);
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
-  }
+  };
 
-  handleChange = ({target}) => {
-    const {name, value} = target
+  handleChange = ({ target }) => {
+    const { name, value } = target;
 
-    this.setState({[name]: value})
-  }
+    this.setState({ [name]: value });
+  };
 
   render() {
     return (
@@ -68,8 +68,8 @@ class SignIn extends React.Component {
           </div>
         </form>
       </div>
-    )
+    );
   }
 }
 
-export default SignIn
+export default SignIn;
