@@ -1,6 +1,6 @@
 import React from 'react'
-import { withRouter } from 'react-router'
-import { Link } from 'react-router-dom'
+import {withRouter} from 'react-router'
+import {Link} from 'react-router-dom'
 
 import CollectionItem from '../collection-item/collection-item.component'
 
@@ -10,7 +10,7 @@ import {
   Preview,
 } from './collection-preview.styles'
 
-const CollectionPreview = ({ title, items, routeName, match }) => (
+const CollectionPreview = ({title, items, routeName, match}) => (
   <CollectionPreviewContainer>
     <Link to={`${match.url}/${routeName}`}>
       <Title>{title.toUpperCase()}</Title>

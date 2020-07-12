@@ -21,7 +21,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   const snapShot = await userRef.get()
 
   if (!snapShot.exists) {
-    const { displayName, email } = userAuth
+    const {displayName, email} = userAuth
     const createdAt = new Date()
 
     try {
@@ -41,7 +41,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 
 export const convertCollectionsSnapshotToMap = (collections) => {
   const transformedCollection = collections.docs.map((doc) => {
-    const { title, items } = doc.data()
+    const {title, items} = doc.data()
 
     return {
       id: doc.id,
@@ -70,7 +70,7 @@ export const firestore = firebase.firestore()
 
 const provider = new firebase.auth.GoogleAuthProvider()
 
-provider.setCustomParameters({ prompt: 'select_account' })
+provider.setCustomParameters({prompt: 'select_account'})
 
 export const signInWithGoogle = () => auth.signInWithPopup(provider)
 

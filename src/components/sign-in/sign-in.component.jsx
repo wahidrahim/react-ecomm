@@ -4,7 +4,7 @@ import './sign-in.styles.scss'
 import FormInput from '../form-input/form-input.component'
 import CustomButton from '../custom-button/custom-button.component'
 
-import { signInWithGoogle, auth } from '../../firebase/firebase.utils'
+import {signInWithGoogle, auth} from '../../firebase/firebase.utils'
 
 const defaultState = {
   email: '',
@@ -21,7 +21,7 @@ class SignIn extends React.Component {
   handleSubmit = async (e) => {
     e.preventDefault()
 
-    const { email, password } = this.state
+    const {email, password} = this.state
 
     try {
       await auth.signInWithEmailAndPassword(email, password)
@@ -32,10 +32,10 @@ class SignIn extends React.Component {
     }
   }
 
-  handleChange = ({ target }) => {
-    const { name, value } = target
+  handleChange = ({target}) => {
+    const {name, value} = target
 
-    this.setState({ [name]: value })
+    this.setState({[name]: value})
   }
 
   render() {

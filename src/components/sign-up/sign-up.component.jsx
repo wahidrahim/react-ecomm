@@ -3,7 +3,7 @@ import React from 'react'
 import FormInput from '../form-input/form-input.component'
 import CustomButton from '../custom-button/custom-button.component'
 
-import { auth, createUserProfileDocument } from '../../firebase/firebase.utils'
+import {auth, createUserProfileDocument} from '../../firebase/firebase.utils'
 
 import './sign-up.styles.scss'
 
@@ -11,7 +11,7 @@ const defaultState = {
   displayName: '',
   email: '',
   password: '',
-  confirmPassword: ''
+  confirmPassword: '',
 }
 
 class Signup extends React.Component {
@@ -21,10 +21,10 @@ class Signup extends React.Component {
     this.state = defaultState
   }
 
-  handleSubmit = async e => {
+  handleSubmit = async (e) => {
     e.preventDefault()
 
-    const { displayName, email, password, confirmPassword } = this.state
+    const {displayName, email, password, confirmPassword} = this.state
 
     if (password !== confirmPassword) {
       alert('Passwords do not match!')
@@ -33,12 +33,9 @@ class Signup extends React.Component {
     }
 
     try {
-      const { user } = await auth.createUserWithEmailAndPassword(
-        email,
-        password
-      )
+      const {user} = await auth.createUserWithEmailAndPassword(email, password)
 
-      await createUserProfileDocument(user, { displayName })
+      await createUserProfileDocument(user, {displayName})
 
       this.setState(defaultState)
     } catch (error) {
@@ -46,14 +43,14 @@ class Signup extends React.Component {
     }
   }
 
-  handleChange = ({ target }) => {
-    const { name, value } = target
+  handleChange = ({target}) => {
+    const {name, value} = target
 
-    this.setState({ [name]: value })
+    this.setState({[name]: value})
   }
 
   render() {
-    const { displayName, email, password, confirmPassword } = this.state
+    const {displayName, email, password, confirmPassword} = this.state
 
     return (
       <div className="sign-up">

@@ -1,16 +1,13 @@
-import React from 'react';
+import React from 'react'
 
-import './checkout.syles.scss';
-import { createStructuredSelector } from 'reselect';
-import {
-  getCartItems,
-  getCartTotalPrice,
-} from '../../redux/cart/cart.selectors';
-import { connect } from 'react-redux';
-import CheckoutItem from '@components/checkout-item/checkout-item.component';
-import StripeCheckoutButton from '@components/stripe-button/stripe-button.component';
+import './checkout.syles.scss'
+import {createStructuredSelector} from 'reselect'
+import {getCartItems, getCartTotalPrice} from '../../redux/cart/cart.selectors'
+import {connect} from 'react-redux'
+import CheckoutItem from '@components/checkout-item/checkout-item.component'
+import StripeCheckoutButton from '@components/stripe-button/stripe-button.component'
 
-const CheckoutPage = ({ cartItems, total }) => (
+const CheckoutPage = ({cartItems, total}) => (
   <div className="checkout-page">
     <div className="checkout-header">
       <div className="header-block">
@@ -37,11 +34,11 @@ const CheckoutPage = ({ cartItems, total }) => (
     </div>
     <StripeCheckoutButton price={total} />
   </div>
-);
+)
 
 const mapStateToProps = createStructuredSelector({
   cartItems: getCartItems,
   total: getCartTotalPrice,
-});
+})
 
-export default connect(mapStateToProps)(CheckoutPage);
+export default connect(mapStateToProps)(CheckoutPage)

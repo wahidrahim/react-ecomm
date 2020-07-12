@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled, {css} from 'styled-components'
 
 const DefaultButtonStyle = css`
   min-width: 165px;
@@ -46,7 +46,7 @@ const InvertedButtonStyle = css`
   }
 `
 
-const applyVariantStyles = ({ inverted, googleSignIn }) => {
+const applyVariantStyles = ({inverted, googleSignIn}) => {
   switch (true) {
     case inverted:
       return InvertedButtonStyle

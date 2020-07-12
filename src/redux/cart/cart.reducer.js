@@ -1,9 +1,9 @@
 import CartActionTypes from './cart.types'
-import { addItemToCart, removeFromCart } from './cart.utils'
+import {addItemToCart, removeFromCart} from './cart.utils'
 
 const INITIAL_STATE = {
   hidden: true,
-  cartItems: []
+  cartItems: [],
 }
 
 const cartReducer = (state = INITIAL_STATE, action) => {
@@ -11,22 +11,22 @@ const cartReducer = (state = INITIAL_STATE, action) => {
     case CartActionTypes.TOGGLE_CART_DROPDOWN:
       return {
         ...state,
-        hidden: !state.hidden
+        hidden: !state.hidden,
       }
     case CartActionTypes.ADD_TO_CART:
       return {
         ...state,
-        cartItems: addItemToCart(state.cartItems, action.item)
+        cartItems: addItemToCart(state.cartItems, action.item),
       }
     case CartActionTypes.REMOVE_FROM_CART:
       return {
         ...state,
-        cartItems: removeFromCart(state.cartItems, action.item)
+        cartItems: removeFromCart(state.cartItems, action.item),
       }
     case CartActionTypes.CLEAR_FROM_CART:
       return {
         ...state,
-        cartItems: state.cartItems.filter(item => item.id !== action.item.id)
+        cartItems: state.cartItems.filter((item) => item.id !== action.item.id),
       }
     default:
       return state
