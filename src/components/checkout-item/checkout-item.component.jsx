@@ -1,20 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import './checkout-item.styles.scss';
-import {
-  clearItemFromCart,
-  addItemToCart,
-  removeItemFromCart,
-} from '../../redux/cart/cart.actions';
-import { connect } from 'react-redux';
+import { CartContext } from '../../providers/cart.provider';
 
-const CheckoutItem = ({
-  item,
-  addItemToCart,
-  removeItemFromCart,
-  clearItemFromCart,
-}) => {
+const CheckoutItem = ({ item }) => {
   const { name, imageUrl, quantity, price } = item;
+  const { addItem, removeItem, clearFromCart } = useContext(CartContext);
 
   return (
     <div className="checkout-item">
@@ -23,26 +14,20 @@ const CheckoutItem = ({
       </div>
       <span className="name">{name}</span>
       <span className="quantity">
-        <div className="arrow" onClick={() => removeItemFromCart(item)}>
+        <div className="arrow" onClick={() => removeItem(item)}>
           &#10094;
         </div>
         <span className="value">{quantity}</span>
-        <div className="arrow" onClick={() => addItemToCart(item)}>
+        <div className="arrow" onClick={() => addItem(item)}>
           &#10095;
         </div>
       </span>
       <span className="price">{price}</span>
-      <div className="remove-button" onClick={() => clearItemFromCart(item)}>
+      <div className="remove-button" onClick={() => clearFromCart(item)}>
         <span>&#10005;</span>
       </div>
     </div>
   );
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  addItemToCart: (item) => dispatch(addItemToCart(item)),
-  removeItemFromCart: (item) => dispatch(removeItemFromCart(item)),
-  clearItemFromCart: (item) => dispatch(clearItemFromCart(item)),
-});
-
-export default connect(null, mapDispatchToProps)(CheckoutItem);
+export default CheckoutItem;
