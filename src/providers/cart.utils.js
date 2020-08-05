@@ -33,3 +33,6 @@ export const removeFromCart = (cartItems, item) => {
 
   return cartItems.filter((cartItem) => cartItem.id !== item.id);
 };
+
+export const filterFromCart = (cartItems, item) =>
+  cartItems.filter((cartItem) => cartItem.id !== item.id);
